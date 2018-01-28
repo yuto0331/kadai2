@@ -11,9 +11,9 @@
         <td><%= blog.title %></td>
         <td><%= blog.content %></td>
         
-        <td><%= link_to '投稿確認', blog_path(blog.id) %></td>
-        <td><%= link_to '編集', edit_blog_path(blog.id) %></td>
-        <td><%= link_to '削除', blog_path(blog.id), method: :delete, data: { confirm: '削除していいですか？' } %></td>
+        <td><%= link_to '確認', blog_path(blog.id), class: 'btn btn-default' %></td>
+        <td><%= link_to '編集', edit_blog_path(blog.id), class: 'btn btn-info' %></td>
+        <td><%= link_to '削除', blog_path(blog.id), method: :delete, data: { confirm: '削除していいですか？' }, class: 'btn btn-danger' %></td>
     </tr>
 <% end %>
 </table>

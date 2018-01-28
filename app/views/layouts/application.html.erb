@@ -3,12 +3,25 @@
   <head>
     <title>Kadai2</title>
     <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <header class="header">
+      <ul>
+        <li><a class="top" href="/">TOP</a></li>
+      </ul>
+    </header>
+    
     <%= yield %>
+    
+    <footer class="footer">
+      <p>2017年10月期生</p>
+      <p>2015-2016 Copyright DIVE INTO CODE Corp.</p>
+    </footer>
+    
   </body>
 </html>

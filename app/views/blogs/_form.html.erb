@@ -1,14 +1,13 @@
 <%= form_with(model: @blog, local: true, url: choose_new_or_edit ) do |form| %>
   <% if @blog.errors.any? %>
-  <div id="error_explanation"
-  <h2><%= @blog.errors.count %>件のエラーがあります。</h2>
-  <ul>
-      
-     <% @blog.errors.full_messages.each do |msg| %>
-     <li><%= msg %></li>
-     <% end %>
-  </ul>
-  </div>
+    <div id="error_explanation"
+     <h2><%= @blog.errors.count %>件のエラーがあります。</h2>
+      <ul>
+         <% @blog.errors.full_messages.each do |msg| %>
+           <li><%= msg %></li>
+         <% end %>
+      </ul>
+    </div>
   <% end %>
   
   <div class="blog_title">
@@ -20,6 +19,6 @@
     <%= form.text_field :content %>
   </div>
   <%= form.submit %>
- <% end %>
+<% end %>
  
- <%= link_to "一覧表示に戻る",blogs_path %>
+ <%= link_to "一覧表示に戻る", blogs_path %>
