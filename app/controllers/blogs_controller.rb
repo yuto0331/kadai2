@@ -1,5 +1,6 @@
 class BlogsController < ApplicationController
     before_action :set_blog, only: [:show, :edit, :update, :destroy]
+    before_action :current_user_login, only: [:new, :edit, :show]
     def index
         @blogs = Blog.all
     end
@@ -57,6 +58,13 @@ class BlogsController < ApplicationController
     def set_blog
         @blog = Blog.find(params[:id])
     end
+    
+    def current_user_login
+        unless  current_user
+        # flash[:referer] = 'ログインしてください'
+        render new_session_path
+        end
+    end       
     
     
 end
