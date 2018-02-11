@@ -51,7 +51,7 @@
 ul{
   margin: 0;
   padding: 0;
-  text-align: center;
+  text-align: auto;
 }
 
 
@@ -87,4 +87,9 @@ body {
 .menu {
   float: left;
   padding: 15px;
+}
+.last {
+  margin: 50px 20px;
+  font-size: 12pt;
+  float: left;
 }

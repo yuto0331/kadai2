@@ -7,23 +7,30 @@ class BlogsController < ApplicationController
     
     def new
         if params[:back]
-        @blog = Blog.new(blog_params)
+        # @blog = Blog.new(blog_params)
+        # else
+        # @blog = Blog.new
+        @blog = current_user.blogs.new(blog_params) 
         else
-        @blog = Blog.new
+        @blog = current_user.blogs.new
         end
     end
     
     def create
-        @blog = Blog.new(params.require(:blog).permit(:title, :content))
+        # @blog = Blog.new(blog_params)
+        # @blog.user_id = current_user.id
+        @blog = current_user.blogs.new(blog_params)
         if @blog.save
+        ContactMailer.contact_mail(@blog).deliver 
         redirect_to new_blog_path
         else
         render 'new'
         end
     end
     
+
     def show
-        @blog = Blog.find(params[:id])
+        @favorite = current_user.favorites.find_by(blog_id: @blog.id)
     end
     
     def edit
@@ -45,8 +52,8 @@ class BlogsController < ApplicationController
     end
     
     def confirm
-        @blog = Blog.new(blog_params)
-        render :new if @blog.invalid?
+        @blog = current_user.blogs.new(blog_params)
+        # render :new if @blog.invalid?
     end
     
     private

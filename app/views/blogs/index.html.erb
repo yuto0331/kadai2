@@ -11,13 +11,16 @@
         <td><%= blog.title %></td>
         <td><%= blog.content %></td>
         
-        <td><%= link_to '確認', blog_path(blog.id), class: 'btn btn-default' %></td>
-        <td><%= link_to '編集', edit_blog_path(blog.id), class: 'btn btn-info' %></td>
-        <td><%= link_to '削除', blog_path(blog.id), method: :delete, data: { confirm: '削除していいですか？' }, class: 'btn btn-danger' %></td>
+        <td><%= link_to '詳細', blog_path(blog.id), class: 'btn btn-default' %></td>
+        <% if blog.user_id == current_user.id %>
+            <td><%= link_to '編集', edit_blog_path(blog.id), class: 'btn btn-info' %></td>
+            <td><%= link_to '削除', blog_path(blog.id), method: :delete, data: { confirm: '削除していいですか？' }, class: 'btn btn-danger' %></td>
+        <% end %>
     </tr>
 <% end %>
 </table>
 
-<br>
-<%= link_to '投稿', new_blog_path %>
-<%= link_to '一覧表示', blogs_path %>
+<ul>
+<li class="last"><%= link_to '投稿', new_blog_path %></li>
+<li class="last"><%= link_to '一覧表示', blogs_path %></li>
+</ul>
