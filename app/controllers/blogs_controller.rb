@@ -17,9 +17,9 @@ class BlogsController < ApplicationController
     end
     
     def create
-        # @blog = Blog.new(blog_params)
-        # @blog.user_id = current_user.id
-        @blog = current_user.blogs.new(blog_params)
+        @blog = Blog.new(blog_params)
+        @blog.user_id = current_user.id
+        #@blog = current_user.blogs.new(blog_params)
         if @blog.save
         ContactMailer.contact_mail(@blog).deliver 
         redirect_to new_blog_path
