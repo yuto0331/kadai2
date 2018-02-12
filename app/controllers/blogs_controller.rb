@@ -21,7 +21,7 @@ class BlogsController < ApplicationController
         @blog.user_id = current_user.id
         #@blog = current_user.blogs.new(blog_params)
         if @blog.save
-        ContactMailer.contact_mail(@blog).deliver 
+        # ContactMailer.contact_mail(@blog).deliver 
         redirect_to new_blog_path
         else
         render 'new'
