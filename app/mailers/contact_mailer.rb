@@ -3,6 +3,6 @@ class ContactMailer < ApplicationMailer
         @blog = blog
         @user = @blog.user.email
         
-        mail to: "@user", subject: "作成完了メール"
+        mail to: @user, subject: "お問い合わせ確認メール"
     end
 end
