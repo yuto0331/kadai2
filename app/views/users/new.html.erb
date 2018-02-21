@@ -24,6 +24,11 @@
 
   <%= f.label :password_confirmation %>
   <%= f.password_field :password_confirmation %>
+  
+  <%= f.label :image %>
+  <%= f.file_field :image, id: :feed_image %>
+  <%= f.hidden_field :image_cache %>
 
-  <%= f.submit "Create my account" %>
+  
+  <%= f.submit "ユーザー登録" %>
 <% end %>

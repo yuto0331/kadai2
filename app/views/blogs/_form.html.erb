@@ -18,7 +18,14 @@
     <%= form.label :content %>
     <%= form.text_field :content %>
   </div>
-  <%= form.submit %>
+  
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image, id: :blog_image %>
+    <%= form.hidden_field :image_cache %>
+  </div>
+  
+  <%= form.submit "ブログ投稿" %>
 <% end %>
  
  <%= link_to "一覧表示に戻る", blogs_path %>

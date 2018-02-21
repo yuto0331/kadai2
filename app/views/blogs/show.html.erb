@@ -2,6 +2,7 @@
 <p>投稿者名：<%= @blog.user.name %></p>
 <p>タイトル：<%= @blog.title %></p>
 <p>内容：<%= @blog.content %></p>
+<p>写真：<%= image_tag @blog.image %></p>
 <%= link_to '一覧表示', blogs_path %>
 
 
