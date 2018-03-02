@@ -1,8 +1,10 @@
 <h3>ユーザー<%= @user.name %>のお気に入りページ</h3>
+
 <%= image_tag @user.image %>
 
 
 <p>メールアドレス：<%= @user.email %></p>
+
 <h2>お気に入り</h2>
 <% @user.favorite_blogs.each do |blog| %>
 <ol>
